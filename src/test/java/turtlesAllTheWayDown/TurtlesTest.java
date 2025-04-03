@@ -44,4 +44,12 @@ public class TurtlesTest {
         int actual = test.gcd(2854, 1572);
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test3gcd() {
+        int expected = 2;
+        int actual = test.gcd(3840, 2482);
+        assertEquals(expected, actual);
+    }
+
 }
