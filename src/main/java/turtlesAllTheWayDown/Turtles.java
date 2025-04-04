@@ -24,8 +24,7 @@ public class Turtles {
     }
 
     public int gcd2(int x, int y) {
-        if (x == 0) return y;
-        if (y == 0) return x;
+        if (x == 0) return y; if (y == 0) return x;
         if (x % 2 == 0 && y % 2 == 0) {
             return 2 * gcd2(x/2, y/2);
         }
@@ -58,6 +57,31 @@ public class Turtles {
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start, finish).toMillis();
         System.out.println(timeElapsed);
+    }
+
+    public String lcs(String x, String y) {
+        String lcs = "";
+        int a = 0; int b = 0;
+        int str1Length = x.length(); int str2Length = y.length();
+        int strMapping[][] = new int[str1Length + 1][str2Length + 1];
+        for (int i = str1Length - 1; i >= 0; i--) {
+            for (int j = str2Length - 1; j >= 0; j--) {
+                if (x.charAt(i) == y.charAt(j)) {
+                    strMapping[i][j] = strMapping[i+1][j+1] + 1;
+                } else {
+                    strMapping[i][j] = Math.max(strMapping[i+1][j], strMapping[i][j+1]);
+                }
+            }
+        }
+        while (a < str1Length && b < str2Length) {
+            if (x.charAt(a) == y.charAt(b)) {
+                lcs += x.charAt(a);
+                a++; b++;
+            } else if (strMapping[a+1][b] >= strMapping[a][b+1]) {a++;}
+            else {b++;}
+        }
+        return lcs;
+        //return null;
     }
 
 }

@@ -52,4 +52,18 @@ public class TurtlesTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void test1lcs() {
+        String expected = "GGCAACG";
+        String actual = test.lcs("GGCACCACG", "ACGGCGGATACG");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test2lcs() {
+        String expected = "beans";
+        String actual = test.lcs("xlboiebapqrndls", "dbrqpemwaionxs");
+        assertEquals(expected, actual);
+    }
+
 }
