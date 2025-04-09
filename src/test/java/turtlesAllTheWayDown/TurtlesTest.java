@@ -61,6 +61,13 @@ public class TurtlesTest {
 
     @Test
     public void test2lcs() {
+        String expected = "GCGCG";
+        String actual = test.lcs("GCCCTAGCG", "GCGCAATG");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test3lcs() {
         String expected = "beans";
         String actual = test.lcs("xlboiebapqrndls", "dbrqpemwaionxs");
         assertEquals(expected, actual);
